@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Project.Entities.Models
 {
-    public class OrderDetail
+    public class OrderDetail : BaseEntity
     {
-
         public int OrderId { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
