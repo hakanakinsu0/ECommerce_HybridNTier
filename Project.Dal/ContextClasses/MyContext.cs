@@ -23,7 +23,7 @@ namespace Project.Dal.ContextClasses
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
             builder.ApplyConfiguration(new OrderConfiguration());
-            builder.ApplyConfiguration(new OrderConfiguration());
+            builder.ApplyConfiguration(new OrderDetailConfiguration());
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
