@@ -1,4 +1,5 @@
 ﻿using Project.Dal.ContextClasses;
+using Project.Dal.Repositories.Abstracts;
 using Project.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Project.Dal.Repositories.Concretes
 {
-    public class AppUserProfileRepository : BaseRepository<AppUserProfile>
+    public class AppUserProfileRepository : BaseRepository<AppUserProfile>, IAppUserProfileRepository
     {
         public AppUserProfileRepository(MyContext context) : base(context)
         {
