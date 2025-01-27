@@ -8,6 +8,7 @@ builder.Services.AddDbContextService();     //DependencyResolvers'tan geldi.
 builder.Services.AddIdentityService();      //DependencyResolvers'tan geldi.
 builder.Services.AddRepositoryService();    //DependencyResolvers'tan geldi.
 builder.Services.AddMapperService();
+builder.Services.AddManagerService();
 
 
 WebApplication app = builder.Build();
