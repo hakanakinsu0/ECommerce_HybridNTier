@@ -4,11 +4,10 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContextService();     //DependencyResolvers'tan geldi.
 builder.Services.AddIdentityService();      //DependencyResolvers'tan geldi.
 builder.Services.AddRepositoryService();    //DependencyResolvers'tan geldi.
-
+builder.Services.AddMapperService();
 
 
 WebApplication app = builder.Build();
