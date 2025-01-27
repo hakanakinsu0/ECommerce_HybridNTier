@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Project.Dal\Project.Dal.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Managers\Concretes\" />
+  </ItemGroup>
+
 </Project>
