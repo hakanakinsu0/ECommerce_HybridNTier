@@ -14,12 +14,14 @@ namespace Project.Conf.Options
         public override void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
             base.Configure(builder);
-            builder.Ignore(x=>x.Id);
-            builder.HasKey(x => new
-            {
-                x.OrderId,
-                x.ProductId
-            });
+            //builder.Ignore(x => x.Id);
+            //builder.HasKey(x => new
+            //{
+            //    x.OrderId,
+            //    x.ProductId
+            //});
+
+            builder.HasIndex(x => new {x.OrderId,x.ProductId}).IsUnique();
             builder.Property(x => x.UnitPrice).HasColumnType("money");
         }
     }
