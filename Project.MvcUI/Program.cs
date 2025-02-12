@@ -10,6 +10,19 @@ builder.Services.AddRepositoryService();    //DependencyResolvers'tan geldi.
 builder.Services.AddMapperService();
 builder.Services.AddManagerService();
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(x =>
+{
+    x.IdleTimeout = TimeSpan.FromSeconds(1);  
+    x.Cookie.HttpOnly = true;
+    x.Cookie.IsEssential = true;
+});
+
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.AccessDeniedPath = "/Home/SignInd"; //Authorization hatalari icin gidilecek path
+    x.LoginPath = "/Home/SignIn"; //Authentication hatalari icin gidilecek path
+});
 
 WebApplication app = builder.Build();
 
@@ -22,10 +35,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession();
+
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Register}/{id?}");
 
 app.Run();
