@@ -1,4 +1,5 @@
 using Project.Bll.DependencyResolvers;
+using Project.MvcUI.DependencyResolvers;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +10,12 @@ builder.Services.AddIdentityService();      //DependencyResolvers'tan geldi.
 builder.Services.AddRepositoryService();    //DependencyResolvers'tan geldi.
 builder.Services.AddMapperService();
 builder.Services.AddManagerService();
+builder.Services.AddVmMapperService();  
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(x =>
 {
-    x.IdleTimeout = TimeSpan.FromSeconds(1);  
+    x.IdleTimeout = TimeSpan.FromSeconds(1);
     x.Cookie.HttpOnly = true;
     x.Cookie.IsEssential = true;
 });
@@ -40,6 +42,10 @@ app.UseSession();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "Admin",
+    pattern: "{area}/{controller=Category}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

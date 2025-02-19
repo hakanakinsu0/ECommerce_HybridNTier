@@ -1,0 +1,36 @@
+﻿@model List<CategoryResponseModel>
+
+<section class="panel">
+    <header class="panel-heading">
+        DataTables hidden row details example
+    </header>
+    <div class="panel-body">
+        <div class="adv-table">
+            <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>CategoryName</th>
+                        <th class="hidden-phone">Description</th>
+                        <th class="hidden-phone">Guncelle</th>
+                        <th class="hidden-phone">Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (CategoryResponseModel item in Model)
+                    {
+                        <tr class="gradeX">
+                            <td>@item.Id</td>
+                            <td>@item.CategoryName</td>
+                            <td class="hidden-phone">@item.Description</td>
+                            <td class="center hidden-phone"><a class="btn btn-warning ">Guncelle</a></td>
+                            <td class="center hidden-phone"><a class="btn btn-danger">Sil</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
