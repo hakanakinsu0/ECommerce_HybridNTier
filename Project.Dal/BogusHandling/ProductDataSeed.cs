@@ -24,7 +24,9 @@ namespace Project.Dal.BogusHandling
                     UnitPrice = Convert.ToDecimal(new Commerce("tr").Price()),
                     UnitsInStock = 100,
                     CategoryId = i,
-                    ImagePath = new Images().DataUri(100, 100)
+                    ImagePath = new Images().DataUri(100, 100),
+                    CreatedDate = DateTime.Now,
+                    Status = Entities.Enums.DataStatus.Inserted
                 };
 
                 products.Add(p);

@@ -10,7 +10,7 @@ namespace Project.MvcUI.VmMapping
         public VmMappingProfile()
         {
             CreateMap<CreateCategoryRequestModel, CategoryDto>(); 
-            CreateMap<UpdateCategoryRequestModel, CategoryDto>();
+            CreateMap<UpdateCategoryRequestModel, CategoryDto>().ReverseMap();
             CreateMap<CategoryDto, CategoryResponseModel>();
         }
     }

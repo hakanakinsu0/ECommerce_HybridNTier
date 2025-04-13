@@ -1,5 +1,6 @@
 ﻿@model List<CategoryResponseModel>
 
+<h1>@TempData["Message"]</h1>
 <section class="panel">
     <header class="panel-heading">
         DataTables hidden row details example
@@ -12,8 +13,11 @@
                         <th>Id</th>
                         <th>CategoryName</th>
                         <th class="hidden-phone">Description</th>
+                        <th class="hidden-phone">Veri Durumu</th>
                         <th class="hidden-phone">Guncelle</th>
                         <th class="hidden-phone">Sil</th>
+                        <th class="hidden-phone">Pasifize Et</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -23,8 +27,10 @@
                             <td>@item.Id</td>
                             <td>@item.CategoryName</td>
                             <td class="hidden-phone">@item.Description</td>
-                            <td class="center hidden-phone"><a class="btn btn-warning ">Guncelle</a></td>
-                            <td class="center hidden-phone"><a class="btn btn-danger">Sil</a></td>
+                            <td>@item.Status</td>
+                            <td class="center hidden-phone"><a asp-action="Update" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-warning ">Guncelle</a></td>
+                            <td class="center hidden-phone"><a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id"  class="btn btn-danger">Sil</a></td>
+                            <td class="center hidden-phone"><a asp-action="Pacify" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-danger">Pasife Cek</a></td>
                         </tr>
                     }
 
